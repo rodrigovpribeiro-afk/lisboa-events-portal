@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Roteiro Lisboa, Linha, Sintra &amp; Margem Sul</title>
+  <title>Roteiro Lisboa, Linha, Sintra e Margem Sul</title>
   <style>
     :root {
       --bg-cream: #FFFDF7;
@@ -296,7 +296,25 @@
       font-size: 0.88rem;
       font-weight: 600;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
+    }
+
+    .btn-refresh-lx {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: 8px;
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--azulejo-blue);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-refresh-lx:hover {
+      background: var(--azulejo-soft);
     }
 
     .events-grid {
@@ -428,8 +446,7 @@
       gap: 8px;
     }
 
-    /* BOTAO TACTIL REFORCADO PARA TELEMOVEL E BROWSER */
-    .btn-official-touch {
+    a.btn-official-touch {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -439,16 +456,17 @@
       color: #FFFFFF !important;
       font-size: 0.82rem;
       font-weight: 700;
-      border: none;
       border-radius: 10px;
-      cursor: pointer;
       text-decoration: none;
-      -webkit-appearance: none;
       touch-action: manipulation;
       transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
-    .btn-official-touch:active {
+    a.btn-official-touch:hover {
+      background-color: #1E40AF;
+    }
+
+    a.btn-official-touch:active {
       transform: scale(0.96);
       background-color: #1E40AF;
     }
@@ -473,10 +491,10 @@
   <div class="azulejo-strip"></div>
   <header>
     <div class="brand-block">
-      <div class="badge-routine">Leitura Direta: Google Sheets (Atualização às 07:30)</div>
-      <h1>Roteiro Lisboa, Linha, Sintra &amp; Margem Sul</h1>
+      <div class="badge-routine">Leitura Direta: Google Sheets (Atualizacao as 07:30)</div>
+      <h1>Roteiro Lisboa, Linha, Sintra e Margem Sul</h1>
       <p class="subtitle">
-        Curadoria automática das agendas municipais: Lisboa Centro, Belém, Algés, Benfica, Oeiras, Sintra, Cascais, Caparica, Almada e Corroios.
+        Curadoria automatica das agendas municipais: Lisboa Centro, Belem, Alges, Benfica, Oeiras, Sintra, Cascais, Caparica, Almada e Corroios.
       </p>
     </div>
 
@@ -500,7 +518,7 @@
           <circle cx="44" cy="48" r="4" fill="#0F172A"/>
           <path d="M24 18L32 10L40 18" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
-        <span>Elétrico</span>
+        <span>Eletrico</span>
       </div>
       <div class="svg-badge">
         <svg width="38" height="38" viewBox="0 0 64 64" fill="none">
@@ -522,15 +540,15 @@
             <button class="pill active" data-audience="Todos">Todos</button>
             <button class="pill" data-audience="Namorada">Namorada</button>
             <button class="pill" data-audience="Amigos">Amigos</button>
-            <button class="pill" data-audience="Familia">Família</button>
+            <button class="pill" data-audience="Familia">Familia</button>
           </div>
         </div>
 
         <div class="filter-group">
-          <span class="filter-label">2. Período</span>
+          <span class="filter-label">2. Periodo</span>
           <div class="pill-group" id="time-pills">
             <button class="pill active" data-time="Todos">Todos</button>
-            <button class="pill" data-time="Manha">Manhã</button>
+            <button class="pill" data-time="Manha">Manha</button>
             <button class="pill" data-time="Tarde">Tarde</button>
             <button class="pill" data-time="Noite">Noite</button>
           </div>
@@ -555,27 +573,27 @@
       </div>
 
       <div class="filter-group">
-        <span class="filter-label">Barra Rápida de Dias (Clica num dia específico)</span>
+        <span class="filter-label">Barra Rapida de Dias (Clica num dia especifico)</span>
         <div class="calendar-strip" id="calendar-strip"></div>
       </div>
 
       <div class="inputs-row">
         <div class="filter-group">
-          <label class="filter-label" for="zone-select">Zona Geográfica</label>
+          <label class="filter-label" for="zone-select">Zona Geografica</label>
           <select id="zone-select" class="input-control">
             <option value="Todas">Todas as Zonas</option>
             <option value="Lisboa Centro">Lisboa Centro (Baixa, Chiado, Av. Novas)</option>
-            <option value="Belem e Alges">Belém, Alcântara &amp; Algés</option>
-            <option value="Benfica e Norte">Benfica, Carnide, Alvalade &amp; Monsanto</option>
-            <option value="Oeiras e Linha">Oeiras, Paço de Arcos &amp; Barcarena</option>
-            <option value="Sintra e Queluz">Sintra, Serra &amp; Queluz</option>
-            <option value="Cascais e Estoril">Cascais &amp; Estoril</option>
+            <option value="Belem e Alges">Belem, Alcantara e Alges</option>
+            <option value="Benfica e Norte">Benfica, Carnide, Alvalade e Monsanto</option>
+            <option value="Oeiras e Linha">Oeiras, Paco de Arcos e Barcarena</option>
+            <option value="Sintra e Queluz">Sintra, Serra e Queluz</option>
+            <option value="Cascais e Estoril">Cascais e Estoril</option>
             <option value="Margem Sul">Margem Sul (Almada, Caparica, Corroios)</option>
           </select>
         </div>
 
         <div class="filter-group">
-          <label class="filter-label" for="exact-date">Data no Calendário</label>
+          <label class="filter-label" for="exact-date">Data no Calendario</label>
           <input type="date" id="exact-date" class="input-control" />
         </div>
 
@@ -588,14 +606,17 @@
 
     <div class="status-bar">
       <span id="results-counter">A carregar dados do Google Sheets...</span>
-      <span id="sync-status">Sincronizando...</span>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span id="sync-status">Sincronizando...</span>
+        <button class="btn-refresh-lx" onclick="loadDataFromSheets()">Atualizar</button>
+      </div>
     </div>
 
     <section class="events-grid" id="events-grid"></section>
   </main>
 
   <script>
-    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/1K2zD8OsuL0UvdHxdc8Zzc-O9WUuhWr3gg2Tl98TsU9I/export?format=csv";
+    const SHEET_ID = "1K2zD8OsuL0UvdHxdc8Zzc-O9WUuhWr3gg2Tl98TsU9I";
 
     let EVENTS_DATA = [];
 
@@ -620,38 +641,39 @@
         if (cc === '"' && quote && nc === '"') { arr[row][col] += cc; ++c; continue; }
         if (cc === '"') { quote = !quote; continue; }
         if (cc === ',' && !quote) { ++col; continue; }
-        if (cc === '
-' && nc === '
-' && !quote) { ++row; col = 0; ++c; continue; }
-        if (cc === '
-' && !quote) { ++row; col = 0; continue; }
-        if (cc === '
-' && !quote) { ++row; col = 0; continue; }
+        if (cc === '\r' && nc === '\n' && !quote) { ++row; col = 0; ++c; continue; }
+        if (cc === '\n' && !quote) { ++row; col = 0; continue; }
+        if (cc === '\r' && !quote) { ++row; col = 0; continue; }
         arr[row][col] += cc;
       }
       return arr;
     }
 
-    function mapSheetData(csvMatrix) {
-      if (csvMatrix.length < 2) return [];
-      const headers = csvMatrix[0].map(h => h.trim().toLowerCase());
+    function mapMatrixData(matrix) {
+      if (!matrix || matrix.length < 2) return [];
+      const headers = matrix[0].map(h => (h || '').toString().trim().toLowerCase().replace(/^["']|["']$/g, ''));
       const data = [];
 
-      for (let i = 1; i < csvMatrix.length; i++) {
-        const row = csvMatrix[i];
-        if (row.length < 2 || !row[0]) continue; 
+      for (let i = 1; i < matrix.length; i++) {
+        const row = matrix[i];
+        if (!row || row.length < 2) continue;
         
         const getCol = (possibleKeys) => {
           for (let key of possibleKeys) {
             const idx = headers.indexOf(key.toLowerCase());
-            if (idx !== -1 && row[idx]) return row[idx].trim();
+            if (idx !== -1 && row[idx] !== undefined && row[idx] !== null) {
+              return row[idx].toString().trim();
+            }
           }
           return "";
         };
-        
+
+        const title = getCol(["Título", "Titulo", "Title", "Nome"]);
+        if (!title) continue;
+
         data.push({
           id: getCol(["ID"]),
-          title: getCol(["Título", "Titulo", "Title", "Nome"]),
+          title: title,
           description: getCol(["Descrição", "Descricao", "Description"]),
           venue: getCol(["Local", "Lugar", "Venue"]),
           zone: getCol(["Zona", "Isla", "Zone"]),
@@ -669,39 +691,118 @@
       return data;
     }
 
-    /* FUNCAO BLINDADA PARA ABERTURA DE LINKS EM TELEMOVEIS / WHATSAPP / DESKTOP */
-    function openExternalUrl(rawUrl) {
-      if (!rawUrl) return;
-      let target = rawUrl.trim();
-      if (!/^https?:\/\//i.test(target)) {
-        target = 'https://' + target;
+    function sanitizeUrl(rawUrl) {
+      if (!rawUrl) return '';
+      let str = String(rawUrl).trim();
+      while (str.startsWith('"') || str.startsWith("'")) {
+        str = str.substring(1).trim();
       }
-      const newWin = window.open(target, '_blank', 'noopener,noreferrer');
-      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
-        window.location.href = target;
+      while (str.endsWith('"') || str.endsWith("'")) {
+        str = str.substring(0, str.length - 1).trim();
       }
+      if (!str) return '';
+      if (!str.startsWith('http://') && !str.startsWith('https://')) {
+        str = 'https://' + str;
+      }
+      return str;
     }
 
-    async function loadDataFromSheets() {
-      try {
-        const response = await fetch(SHEET_CSV_URL);
-        const csvText = await response.text();
-        const csvMatrix = parseCSV(csvText);
-        EVENTS_DATA = mapSheetData(csvMatrix);
-        document.getElementById("sync-status").textContent = "Base de dados ligada com sucesso";
-        generateDayStrip();
-        renderEvents();
-      } catch (error) {
-        document.getElementById("results-counter").textContent = "Erro ao carregar dados do Google Sheets.";
-        document.getElementById("sync-status").textContent = "Falha na ligação";
+    function loadDataFromSheets() {
+      const statusEl = document.getElementById("sync-status");
+      const counterEl = document.getElementById("results-counter");
+      statusEl.textContent = "A sincronizar...";
+
+      let responded = false;
+      const timeoutId = setTimeout(() => {
+        if (!responded) {
+          fallbackFetch();
+        }
+      }, 4000);
+
+      window.handleGoogleSheetData = function(gviz) {
+        responded = true;
+        clearTimeout(timeoutId);
+        try {
+          if (!gviz || !gviz.table) throw new Error("Estrutura invalida");
+          const table = gviz.table;
+          const matrix = [];
+          
+          const colLabels = (table.cols || []).map(c => (c && c.label ? c.label.trim() : ''));
+          const hasColLabels = colLabels.some(l => l !== '');
+
+          const rawRows = (table.rows || []).map(r => {
+            return (r.c || []).map(cell => {
+              if (!cell) return "";
+              return cell.f !== undefined && cell.f !== null ? cell.f : (cell.v !== undefined && cell.v !== null ? cell.v : "");
+            });
+          });
+
+          if (hasColLabels) {
+            matrix.push(colLabels);
+            rawRows.forEach(r => matrix.push(r));
+          } else if (rawRows.length > 0) {
+            rawRows.forEach(r => matrix.push(r));
+          }
+
+          EVENTS_DATA = mapMatrixData(matrix);
+          statusEl.textContent = "Ligado com sucesso";
+          generateDayStrip();
+          renderEvents();
+        } catch (e) {
+          fallbackFetch();
+        }
+      };
+
+      const prevScript = document.getElementById("gviz-script-tag");
+      if (prevScript) prevScript.remove();
+
+      const script = document.createElement("script");
+      script.id = "gviz-script-tag";
+      script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=responseHandler:handleGoogleSheetData&t=${Date.now()}`;
+      script.onerror = function() {
+        if (!responded) {
+          clearTimeout(timeoutId);
+          fallbackFetch();
+        }
+      };
+      document.body.appendChild(script);
+    }
+
+    async function fallbackFetch() {
+      const statusEl = document.getElementById("sync-status");
+      const counterEl = document.getElementById("results-counter");
+
+      const endpoints = [
+        `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&t=${Date.now()}`,
+        `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&t=${Date.now()}`
+      ];
+
+      for (let url of endpoints) {
+        try {
+          const res = await fetch(url, { cache: "no-store" });
+          if (res.ok) {
+            const csvText = await res.text();
+            if (csvText && csvText.length > 30 && !csvText.includes("<!DOCTYPE html>")) {
+              const matrix = parseCSV(csvText);
+              EVENTS_DATA = mapMatrixData(matrix);
+              statusEl.textContent = "Ligado com sucesso";
+              generateDayStrip();
+              renderEvents();
+              return;
+            }
+          }
+        } catch (err) {}
       }
+
+      counterEl.textContent = "Erro ao carregar dados do Google Sheets.";
+      statusEl.textContent = "Falha na ligacao";
     }
 
     function generateDayStrip() {
       const strip = document.getElementById("calendar-strip");
       const today = new Date();
       const days = [];
-      const ptDays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
+      const ptDays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
       const ptMonths = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 
       for (let i = 0; i < 14; i++) {
@@ -818,7 +919,7 @@
         const audienceBadges = ev.audience.map(a => `<span class="badge-aud ${a}">${a}</span>`).join("");
         const timeBadges = ev.time_of_day.map(t => `<span class="badge-time">${t}</span>`).join("");
         const isFreePrice = isFree(ev.price);
-        const cleanUrl = (ev.url || "").replace(/'/g, "\'");
+        const finalUrl = sanitizeUrl(ev.url);
 
         return `
           <article class="event-card">
@@ -835,7 +936,7 @@
               <div class="meta-list">
                 <div><strong>Local:</strong> ${ev.venue} (${ev.municipality})</div>
                 <div><strong>Data:</strong> ${dateLabel}</div>
-                <div><strong>Horário:</strong> ${ev.schedule_details}</div>
+                <div><strong>Horario:</strong> ${ev.schedule_details}</div>
               </div>
 
               <div class="tags-row" style="margin-top: 10px;">
@@ -845,7 +946,7 @@
 
               <div class="card-footer" style="margin-top: 12px;">
                 <span>Fonte: ${ev.source_name}</span>
-                ${ev.url ? `<button type="button" class="btn-official-touch" onclick="openExternalUrl('${cleanUrl}')">Ver Oficial &rarr;</button>` : ''}
+                ${finalUrl ? `<a class="btn-official-touch" href="\${finalUrl}" target="_blank" rel="noopener noreferrer">Ver Oficial &rarr;</a>` : ''}
               </div>
             </div>
           </article>
