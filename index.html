@@ -2,8 +2,8 @@
 <html lang="pt-PT">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Roteiro de Lisboa, Linha, Sintra & Margem Sul</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Roteiro Lisboa, Linha, Sintra &amp; Margem Sul</title>
   <style>
     :root {
       --bg-cream: #FFFDF7;
@@ -28,12 +28,16 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
       background-color: var(--bg-cream);
       color: var(--ink-dark);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       line-height: 1.5;
     }
 
@@ -53,12 +57,12 @@
     header {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 32px 24px 20px;
+      padding: 28px 20px 18px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
       border-bottom: 1px solid var(--border-soft);
     }
 
@@ -78,25 +82,27 @@
       letter-spacing: 0.06em;
       padding: 6px 12px;
       border-radius: 999px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: -0.02em;
       color: var(--ink-dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      line-height: 1.2;
     }
 
     .subtitle {
       color: var(--ink-muted);
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
 
     .illustrations-bar {
       display: flex;
-      gap: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
       align-items: center;
     }
 
@@ -104,13 +110,13 @@
       background: var(--bg-card);
       border: 1px solid var(--border-soft);
       border-radius: 16px;
-      padding: 10px 14px;
+      padding: 8px 12px;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 4px;
       box-shadow: var(--shadow-soft);
-      min-width: 92px;
+      min-width: 82px;
     }
 
     .svg-badge span {
@@ -122,36 +128,43 @@
     main {
       max-width: 1240px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 20px 16px 40px;
     }
 
     .controls-panel {
       background: var(--bg-card);
       border: 1px solid var(--border-soft);
       border-radius: 20px;
-      padding: 22px;
+      padding: 20px;
       box-shadow: var(--shadow-soft);
       margin-bottom: 24px;
       display: grid;
-      gap: 18px;
+      gap: 16px;
     }
 
     .filter-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      align-items: flex-end;
+      gap: 16px;
+      align-items: flex-start;
     }
 
     .filter-group {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      flex: 1 1 100%;
+    }
+
+    @media (min-width: 768px) {
+      .filter-group {
+        flex: 0 1 auto;
+      }
     }
 
     .filter-label {
       font-size: 0.76rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--ink-muted);
@@ -173,6 +186,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.15s ease;
+      white-space: nowrap;
     }
 
     button.pill:hover {
@@ -207,10 +221,16 @@
 
     .inputs-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 14px;
-      padding-top: 8px;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding-top: 10px;
       border-top: 1px solid var(--border-soft);
+    }
+
+    @media (min-width: 768px) {
+      .inputs-row {
+        grid-template-columns: 1.2fr 1fr 1.5fr;
+      }
     }
 
     .input-control {
@@ -228,11 +248,17 @@
       gap: 8px;
       overflow-x: auto;
       padding-bottom: 6px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .calendar-strip::-webkit-scrollbar {
+      display: none;
     }
 
     .day-chip {
-      min-width: 78px;
-      padding: 8px 10px;
+      min-width: 74px;
+      padding: 8px 8px;
       border-radius: 12px;
       border: 1px solid var(--border-soft);
       background: var(--bg-cream);
@@ -249,14 +275,14 @@
     }
 
     .day-chip .day-name {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       text-transform: uppercase;
       color: var(--ink-muted);
       display: block;
     }
 
     .day-chip .day-num {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--ink-dark);
     }
@@ -267,31 +293,37 @@
       align-items: center;
       margin-bottom: 16px;
       color: var(--ink-muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
+      flex-wrap: wrap;
+      gap: 6px;
     }
 
     .events-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      width: 100%;
+    }
+
+    @media (min-width: 700px) {
+      .events-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 20px;
+      }
     }
 
     .event-card {
       background: var(--bg-card);
       border: 1px solid var(--border-soft);
       border-radius: 18px;
-      padding: 20px;
+      padding: 18px;
       box-shadow: var(--shadow-soft);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       gap: 14px;
       transition: transform 0.15s ease;
-    }
-
-    .event-card:hover {
-      transform: translateY(-3px);
     }
 
     .card-top {
@@ -329,15 +361,17 @@
       font-weight: 800;
       color: var(--ink-dark);
       margin-top: 6px;
+      line-height: 1.25;
     }
 
     .event-desc {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--ink-muted);
+      margin-top: 4px;
     }
 
     .meta-list {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       color: var(--ink-dark);
       display: grid;
       gap: 4px;
@@ -390,27 +424,48 @@
       align-items: center;
       padding-top: 10px;
       border-top: 1px solid var(--border-soft);
-      font-size: 0.8rem;
+      font-size: 0.82rem;
+      gap: 8px;
     }
 
-    .source-link {
-      color: var(--azulejo-blue);
+    /* BOTAO TACTIL REFORCADO PARA TELEMOVEL E BROWSER */
+    .btn-official-touch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 16px;
+      background-color: var(--azulejo-blue);
+      color: #FFFFFF !important;
+      font-size: 0.82rem;
       font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
       text-decoration: none;
+      -webkit-appearance: none;
+      touch-action: manipulation;
+      transition: background-color 0.15s ease, transform 0.1s ease;
     }
 
-    .source-link:hover {
-      text-decoration: underline;
+    .btn-official-touch:active {
+      transform: scale(0.96);
+      background-color: #1E40AF;
     }
 
     .empty-state {
-      grid-column: 1 / -1;
       text-align: center;
-      padding: 48px 24px;
+      padding: 40px 16px;
       background: var(--bg-card);
       border-radius: 18px;
       border: 1px dashed var(--border-soft);
       color: var(--ink-muted);
+    }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 1.8rem; }
+      .controls-panel { padding: 16px; }
+      .event-card { padding: 16px; }
     }
   </style>
 </head>
@@ -418,16 +473,16 @@
   <div class="azulejo-strip"></div>
   <header>
     <div class="brand-block">
-      <div class="badge-routine">Leitura Direta: Google Sheets (Atualizacao as 07:30)</div>
+      <div class="badge-routine">Leitura Direta: Google Sheets (Atualização às 07:30)</div>
       <h1>Roteiro Lisboa, Linha, Sintra &amp; Margem Sul</h1>
       <p class="subtitle">
-        Curadoria automatica das agendas municipais: Lisboa Centro, Belem, Alges, Benfica, Oeiras, Sintra, Cascais, Caparica, Almada e Corroios.
+        Curadoria automática das agendas municipais: Lisboa Centro, Belém, Algés, Benfica, Oeiras, Sintra, Cascais, Caparica, Almada e Corroios.
       </p>
     </div>
 
     <div class="illustrations-bar">
       <div class="svg-badge">
-        <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+        <svg width="38" height="38" viewBox="0 0 64 64" fill="none">
           <path d="M8 34C8 24 56 24 56 34L50 50C48 54 16 54 14 50L8 34Z" fill="#D97706" stroke="#78350F" stroke-width="2.5"/>
           <ellipse cx="32" cy="32" rx="24" ry="10" fill="#FDE68A" stroke="#78350F" stroke-width="2.5"/>
           <ellipse cx="26" cy="31" rx="7" ry="3.5" fill="#92400E"/>
@@ -436,7 +491,7 @@
         <span>Pastel Nata</span>
       </div>
       <div class="svg-badge">
-        <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+        <svg width="38" height="38" viewBox="0 0 64 64" fill="none">
           <rect x="10" y="18" width="44" height="28" rx="6" fill="#F59E0B" stroke="#0F172A" stroke-width="2.5"/>
           <rect x="15" y="23" width="10" height="10" rx="2" fill="#FFFDF7" stroke="#0F172A" stroke-width="2"/>
           <rect x="27" y="23" width="10" height="10" rx="2" fill="#FFFDF7" stroke="#0F172A" stroke-width="2"/>
@@ -445,10 +500,10 @@
           <circle cx="44" cy="48" r="4" fill="#0F172A"/>
           <path d="M24 18L32 10L40 18" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
-        <span>Eletrico</span>
+        <span>Elétrico</span>
       </div>
       <div class="svg-badge">
-        <svg width="42" height="42" viewBox="0 0 64 64" fill="none">
+        <svg width="38" height="38" viewBox="0 0 64 64" fill="none">
           <rect x="10" y="10" width="44" height="44" rx="4" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="2.5"/>
           <path d="M32 14L50 32L32 50L14 32L32 14Z" stroke="#1D4ED8" stroke-width="2.5"/>
           <circle cx="32" cy="32" r="6" fill="#1D4ED8"/>
@@ -467,15 +522,15 @@
             <button class="pill active" data-audience="Todos">Todos</button>
             <button class="pill" data-audience="Namorada">Namorada</button>
             <button class="pill" data-audience="Amigos">Amigos</button>
-            <button class="pill" data-audience="Familia">Familia</button>
+            <button class="pill" data-audience="Familia">Família</button>
           </div>
         </div>
 
         <div class="filter-group">
-          <span class="filter-label">2. Periodo</span>
+          <span class="filter-label">2. Período</span>
           <div class="pill-group" id="time-pills">
             <button class="pill active" data-time="Todos">Todos</button>
-            <button class="pill" data-time="Manha">Manha</button>
+            <button class="pill" data-time="Manha">Manhã</button>
             <button class="pill" data-time="Tarde">Tarde</button>
             <button class="pill" data-time="Noite">Noite</button>
           </div>
@@ -500,19 +555,19 @@
       </div>
 
       <div class="filter-group">
-        <span class="filter-label">Barra Rapida de Dias (Clique num dia especifico)</span>
+        <span class="filter-label">Barra Rápida de Dias (Clica num dia específico)</span>
         <div class="calendar-strip" id="calendar-strip"></div>
       </div>
 
       <div class="inputs-row">
         <div class="filter-group">
-          <label class="filter-label" for="zone-select">Zona Geografica</label>
+          <label class="filter-label" for="zone-select">Zona Geográfica</label>
           <select id="zone-select" class="input-control">
             <option value="Todas">Todas as Zonas</option>
             <option value="Lisboa Centro">Lisboa Centro (Baixa, Chiado, Av. Novas)</option>
-            <option value="Belem e Alges">Belem, Alcantara &amp; Alges</option>
+            <option value="Belem e Alges">Belém, Alcântara &amp; Algés</option>
             <option value="Benfica e Norte">Benfica, Carnide, Alvalade &amp; Monsanto</option>
-            <option value="Oeiras e Linha">Oeiras, Paco de Arcos &amp; Barcarena</option>
+            <option value="Oeiras e Linha">Oeiras, Paço de Arcos &amp; Barcarena</option>
             <option value="Sintra e Queluz">Sintra, Serra &amp; Queluz</option>
             <option value="Cascais e Estoril">Cascais &amp; Estoril</option>
             <option value="Margem Sul">Margem Sul (Almada, Caparica, Corroios)</option>
@@ -520,13 +575,13 @@
         </div>
 
         <div class="filter-group">
-          <label class="filter-label" for="exact-date">Data no Calendario</label>
+          <label class="filter-label" for="exact-date">Data no Calendário</label>
           <input type="date" id="exact-date" class="input-control" />
         </div>
 
         <div class="filter-group">
           <label class="filter-label" for="search-input">Pesquisa Livre</label>
-          <input type="search" id="search-input" class="input-control" placeholder="Ex: concerto, mercado..." />
+          <input type="search" id="search-input" class="input-control" placeholder="Ex: concerto, mercado, parque..." />
         </div>
       </div>
     </section>
@@ -565,9 +620,13 @@
         if (cc === '"' && quote && nc === '"') { arr[row][col] += cc; ++c; continue; }
         if (cc === '"') { quote = !quote; continue; }
         if (cc === ',' && !quote) { ++col; continue; }
-        if (cc === '\r' && nc === '\n' && !quote) { ++row; col = 0; ++c; continue; }
-        if (cc === '\n' && !quote) { ++row; col = 0; continue; }
-        if (cc === '\r' && !quote) { ++row; col = 0; continue; }
+        if (cc === '
+' && nc === '
+' && !quote) { ++row; col = 0; ++c; continue; }
+        if (cc === '
+' && !quote) { ++row; col = 0; continue; }
+        if (cc === '
+' && !quote) { ++row; col = 0; continue; }
         arr[row][col] += cc;
       }
       return arr;
@@ -575,35 +634,52 @@
 
     function mapSheetData(csvMatrix) {
       if (csvMatrix.length < 2) return [];
-      const headers = csvMatrix[0].map(h => h.trim());
+      const headers = csvMatrix[0].map(h => h.trim().toLowerCase());
       const data = [];
+
       for (let i = 1; i < csvMatrix.length; i++) {
         const row = csvMatrix[i];
         if (row.length < 2 || !row[0]) continue; 
         
-        const getCol = (name) => {
-          const idx = headers.indexOf(name);
-          return idx !== -1 && row[idx] ? row[idx].trim() : "";
+        const getCol = (possibleKeys) => {
+          for (let key of possibleKeys) {
+            const idx = headers.indexOf(key.toLowerCase());
+            if (idx !== -1 && row[idx]) return row[idx].trim();
+          }
+          return "";
         };
         
         data.push({
-          id: getCol("ID"),
-          title: getCol("Título"),
-          description: getCol("Descrição"),
-          venue: getCol("Local"),
-          zone: getCol("Zona"),
-          municipality: getCol("Concelho"),
-          start_date: getCol("Data Início"),
-          end_date: getCol("Data Fim"),
-          time_of_day: getCol("Altura do Dia").split(",").map(s => s.trim()).filter(Boolean),
-          schedule_details: getCol("Horário"),
-          audience: getCol("Companhia").split(",").map(s => s.trim()).filter(Boolean),
-          price: getCol("Preço"),
-          source_name: getCol("Fonte"),
-          url: getCol("URL")
+          id: getCol(["ID"]),
+          title: getCol(["Título", "Titulo", "Title", "Nome"]),
+          description: getCol(["Descrição", "Descricao", "Description"]),
+          venue: getCol(["Local", "Lugar", "Venue"]),
+          zone: getCol(["Zona", "Isla", "Zone"]),
+          municipality: getCol(["Concelho", "Município", "Municipio"]),
+          start_date: getCol(["Data Início", "Data Inicio", "Start Date"]),
+          end_date: getCol(["Data Fim", "End Date"]),
+          time_of_day: getCol(["Altura do Dia", "Periodo", "Horário"]).split(",").map(s => s.trim()).filter(Boolean),
+          schedule_details: getCol(["Horário", "Horario", "Schedule"]),
+          audience: getCol(["Companhia", "Audiencia", "Audience"]).split(",").map(s => s.trim()).filter(Boolean),
+          price: getCol(["Preço", "Preco", "Price"]),
+          source_name: getCol(["Fonte", "Source"]),
+          url: getCol(["URL", "Url", "Link", "Enlace", "Website"])
         });
       }
       return data;
+    }
+
+    /* FUNCAO BLINDADA PARA ABERTURA DE LINKS EM TELEMOVEIS / WHATSAPP / DESKTOP */
+    function openExternalUrl(rawUrl) {
+      if (!rawUrl) return;
+      let target = rawUrl.trim();
+      if (!/^https?:\/\//i.test(target)) {
+        target = 'https://' + target;
+      }
+      const newWin = window.open(target, '_blank', 'noopener,noreferrer');
+      if (!newWin || newWin.closed || typeof newWin.closed === 'undefined') {
+        window.location.href = target;
+      }
     }
 
     async function loadDataFromSheets() {
@@ -612,12 +688,12 @@
         const csvText = await response.text();
         const csvMatrix = parseCSV(csvText);
         EVENTS_DATA = mapSheetData(csvMatrix);
-        document.getElementById("sync-status").textContent = "Base de dados lida com sucesso";
+        document.getElementById("sync-status").textContent = "Base de dados ligada com sucesso";
         generateDayStrip();
         renderEvents();
       } catch (error) {
         document.getElementById("results-counter").textContent = "Erro ao carregar dados do Google Sheets.";
-        document.getElementById("sync-status").textContent = "Falha na ligacao";
+        document.getElementById("sync-status").textContent = "Falha na ligação";
       }
     }
 
@@ -625,7 +701,7 @@
       const strip = document.getElementById("calendar-strip");
       const today = new Date();
       const days = [];
-      const ptDays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+      const ptDays = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
       const ptMonths = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
 
       for (let i = 0; i < 14; i++) {
@@ -663,7 +739,7 @@
     }
 
     function isFree(priceStr) {
-      const p = priceStr.toLowerCase();
+      const p = (priceStr || "").toLowerCase();
       return p.includes("gratuito") || p.includes("livre") || p === "0" || p === "0 eur" || p === "0€";
     }
 
@@ -708,7 +784,7 @@
       const query = state.search.trim().toLowerCase();
 
       const filtered = EVENTS_DATA.filter(ev => {
-        if (state.audience !== "Todos" && !ev.audience.includes(state.audience)) return false;
+        if (state.audience !== "Todos" && !ev.audience.some(a => a.includes(state.audience) || state.audience.includes(a))) return false;
         if (state.time !== "Todos" && !ev.time_of_day.includes(state.time)) return false;
         if (state.zone !== "Todas" && ev.zone !== state.zone) return false;
         if (state.price === "Gratuito" && !isFree(ev.price)) return false;
@@ -742,6 +818,7 @@
         const audienceBadges = ev.audience.map(a => `<span class="badge-aud ${a}">${a}</span>`).join("");
         const timeBadges = ev.time_of_day.map(t => `<span class="badge-time">${t}</span>`).join("");
         const isFreePrice = isFree(ev.price);
+        const cleanUrl = (ev.url || "").replace(/'/g, "\'");
 
         return `
           <article class="event-card">
@@ -758,7 +835,7 @@
               <div class="meta-list">
                 <div><strong>Local:</strong> ${ev.venue} (${ev.municipality})</div>
                 <div><strong>Data:</strong> ${dateLabel}</div>
-                <div><strong>Horario:</strong> ${ev.schedule_details}</div>
+                <div><strong>Horário:</strong> ${ev.schedule_details}</div>
               </div>
 
               <div class="tags-row" style="margin-top: 10px;">
@@ -768,7 +845,7 @@
 
               <div class="card-footer" style="margin-top: 12px;">
                 <span>Fonte: ${ev.source_name}</span>
-                ${ev.url ? `<a class="source-link" href="\${ev.url}" target="_blank" rel="noopener noreferrer">Ver Oficial &rarr;</a>` : ''}
+                ${ev.url ? `<button type="button" class="btn-official-touch" onclick="openExternalUrl('${cleanUrl}')">Ver Oficial &rarr;</button>` : ''}
               </div>
             </div>
           </article>
